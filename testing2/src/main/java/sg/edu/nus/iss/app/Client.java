@@ -29,7 +29,9 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
 
         while(true){
-            System.out.println("Get cookies?");
+            System.out.println("get-cookie || occurence || get-idioms || exit");
+            // System.out.println(dis.readUTF());
+
             String message = scanner.nextLine();
             dos.writeUTF(message);
             dos.flush();

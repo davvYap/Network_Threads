@@ -13,8 +13,14 @@ import java.net.Socket;
 public class Server {
     private static ServerSocket server;
     private static int port = 3999;
+    private static String fileName = "cookies_file.txt";
 
     public static void main(String[] args) throws IOException{
+
+        if(args.length > 0){
+            fileName = args[0];
+        };
+
         server = new ServerSocket(port);
         System.out.println("Waiting for client request...");
         
@@ -61,7 +67,7 @@ public class Server {
                 // }
 
                 // ClientHandler cch = new ClientHandler(dis, dos, socket);
-                ClientHandler cch = new ClientHandler(socket);
+                ClientHandler cch = new ClientHandler(socket,fileName);
                 cch.start();
                 
             }catch(IOException e){
